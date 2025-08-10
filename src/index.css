@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Paleta personalizada */
+@theme {
+  --color-brick: #C1440E; /* Rojo ladrillo */
+  --color-brick-700: #A63B0D; /* Hover más oscuro */
+  --color-mustard: #E5A823; /* Amarillo mostaza */
+  --color-wood: #5D3A00; /* Marrón madera */
+  --color-cream: #FAF3E0; /* Crema claro */
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-cream text-neutral-800 antialiased;
+}
+
+/* Contenedor responsive con buenos gutters */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}

@@ -1,0 +1,68 @@
+import type { Product } from "../types";
+
+export const demoProducts: Product[] = [
+  {
+    id: "tuberia-pvc-110",
+    name: "Tubería PVC",
+    description: "Para desagüe sanitario y pluvial. TR Clase 10.",
+    price: 0,
+    imageUrl: "/img/tuberia.png",
+    category: "Tubería",
+  },
+  {
+    id: "cemento-gris-50kg",
+    name: "Cemento Gris",
+    description: "Uso general en elementos estructurales y mampostería.",
+    price: 0,
+    imageUrl: "/img/cemento.png",
+    category: "Cementos",
+  },
+  {
+    id: "bloque-concreto-12",
+    name: "Bloque de Concreto 12",
+    description: "Bloque estructural de 12 cm para muros y cerramientos.",
+    price: 0,
+    imageUrl: "/img/bloque.png",
+    category: "Mampostería",
+  },
+  {
+    id: "varilla-corrugada-3-8",
+    name: "Varilla Corrugada 3/8\"",
+    description: "Acero de refuerzo grado 420, barras para fundida.",
+    price: 0,
+    imageUrl: "/img/varilla.png",
+    category: "Acero",
+  },
+  {
+    id: "tornilleria-surtda",
+    name: "Tornillería surtida",
+    description: "Kit con tornillos, tuercas y arandelas en varias medidas.",
+    price: 0,
+    imageUrl: "/img/tornilleria.png",
+    category: "Tornillería",
+  },
+  {
+    id: "arena-rio-m3",
+    name: "Arena de río x m³",
+    description: "Lavada y cernida, ideal para morteros y concretos.",
+    price: 0,
+    imageUrl: "/img/arena.png",
+    category: "Áridos",
+  },
+  {
+    id: "pala-obrero",
+    name: "Pala de obra",
+    description: "Mango de madera, hoja templada tipo corazón.",
+    price: 0,
+    imageUrl: "/img/pala.png",
+    category: "Herramientas",
+  },
+  {
+    id: "carretilla-obra",
+    name: "Carretilla de obra",
+    description: "Bandeja reforzada, rueda neumática, 90L.",
+    price: 0,
+    imageUrl: "/img/carretilla.png",
+    category: "Herramientas",
+  },
+];

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# TODO: Reemplaza example.com por tu dominio de producción
+Sitemap: https://example.com/sitemap.xml
+Host: example.com
+
+
