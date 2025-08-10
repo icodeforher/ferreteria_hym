@@ -23,3 +23,9 @@ body {
 .container {
   @apply mx-auto px-4 sm:px-6 lg:px-8;
 }
+
+/* Mejora performance de renderizado de tarjetas fuera de pantalla */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 320px 420px;
+}

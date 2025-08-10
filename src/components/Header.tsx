@@ -35,7 +35,7 @@ export default function Header({
             Catálogo
           </a>
           <a
-            href="#contacto"
+            href="/contacto.html"
             className="text-neutral-600 hover:text-neutral-900"
           >
             Contacto
@@ -88,7 +88,7 @@ export default function Header({
             <a href="#catalogo" className="py-2 text-neutral-700">
               Catálogo
             </a>
-            <a href="#contacto" className="py-2 text-neutral-700">
+            <a href="/contacto.html" className="py-2 text-neutral-700">
               Contacto
             </a>
             {whatsappHref && (

@@ -25,7 +25,7 @@ export default function Catalog({ products, onWhatsApp, onWhatsAppGeneral }: Cat
         {products.map((p) => (
           <article
             key={p.id}
-            className="group overflow-hidden rounded-xl border border-neutral-200 bg-white"
+            className="group overflow-hidden rounded-xl border border-neutral-200 bg-white cv-auto"
           >
             <div className="aspect-[4/3] bg-white grid place-items-center">
               <img
@@ -34,6 +34,9 @@ export default function Catalog({ products, onWhatsApp, onWhatsAppGeneral }: Cat
                 className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                 loading="lazy"
                 decoding="async"
+                fetchPriority="low"
+                width={1024}
+                height={768}
               />
             </div>
             <div className="p-4">
