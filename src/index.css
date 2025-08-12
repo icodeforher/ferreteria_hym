@@ -46,10 +46,18 @@ body {
 }
 
 .marquee-track {
-  animation: brands-marquee 30s linear infinite;
+  animation: brands-marquee 15s linear infinite;
   will-change: transform;
 }
 
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
+@media (min-width: 768px) {
+  .marquee-track {
+    animation-duration: 25s;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
 }

@@ -80,6 +80,7 @@ export default function Brands() {
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    // Fallback JS para navegadores que no animan CSS en background/touch
     let rafId: number;
     const step = () => {
       const el = scrollRef.current;
@@ -87,9 +88,10 @@ export default function Brands() {
         rafId = requestAnimationFrame(step);
         return;
       }
-      if (!isPaused) {
-        el.scrollLeft += 0.5; // velocidad
-        const maxLoop = el.scrollWidth / 2; // duplicamos contenido
+      const prefersCss = !!el.querySelector('.marquee-track');
+      if (!isPaused && !prefersCss) {
+        el.scrollLeft += 1; // más velocidad en fallback
+        const maxLoop = el.scrollWidth / 2;
         if (el.scrollLeft >= maxLoop) {
           el.scrollLeft -= maxLoop;
         }
