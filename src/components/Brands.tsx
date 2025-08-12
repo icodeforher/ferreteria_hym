@@ -103,7 +103,7 @@ export default function Brands() {
   const marqueeItems = [...BRANDS, ...BRANDS];
 
   return (
-    <section id="marcas" className="container py-12 md:py-16">
+    <section id="marcas" className="container py-6 md:py-8">
       <div className="mb-6">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
           Marcas que manejamos
@@ -116,12 +116,12 @@ export default function Brands() {
       <div className="relative">
         <div
           ref={scrollRef}
-          className="overflow-hidden"
+          className="overflow-hidden marquee"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           aria-label="Carrusel de marcas"
         >
-          <ul className="flex items-center gap-8 whitespace-nowrap py-2">
+          <ul className="marquee-track flex items-center gap-8 whitespace-nowrap py-2">
             {marqueeItems.map((b, idx) => (
               <li key={`${b}-${idx}`} className="shrink-0">
                 <span className="block text-center uppercase text-sm sm:text-base md:text-lg font-semibold text-neutral-800 tracking-wide opacity-80 hover:opacity-100 transition-opacity">

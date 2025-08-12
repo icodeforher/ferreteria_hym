@@ -21,7 +21,7 @@ export default function Hero({ onCTAClick }: HeroProps) {
   }, []);
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-cream to-white">
-      <div className="container grid gap-8 py-16 md:grid-cols-2 md:items-center md:py-24">
+      <div className="container grid gap-8 pt-16 pb-6 md:grid-cols-2 md:items-center md:pt-20 md:pb-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             Todo para tu proyecto, al mejor precio
