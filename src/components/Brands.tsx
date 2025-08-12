@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React from "react";
 
 const BRANDS = [
   "GRIVAL",
@@ -76,32 +76,6 @@ const BRANDS = [
 ];
 
 export default function Brands() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    // Fallback JS para navegadores que no animan CSS en background/touch
-    let rafId: number;
-    const step = () => {
-      const el = scrollRef.current;
-      if (!el) {
-        rafId = requestAnimationFrame(step);
-        return;
-      }
-      const prefersCss = !!el.querySelector('.marquee-track');
-      if (!isPaused && !prefersCss) {
-        el.scrollLeft += 1; // más velocidad en fallback
-        const maxLoop = el.scrollWidth / 2;
-        if (el.scrollLeft >= maxLoop) {
-          el.scrollLeft -= maxLoop;
-        }
-      }
-      rafId = requestAnimationFrame(step);
-    };
-    rafId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(rafId);
-  }, [isPaused]);
-
   const marqueeItems = [...BRANDS, ...BRANDS];
 
   return (
@@ -116,13 +90,7 @@ export default function Brands() {
       </div>
 
       <div className="relative">
-        <div
-          ref={scrollRef}
-          className="overflow-hidden marquee"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          aria-label="Carrusel de marcas"
-        >
+        <div className="overflow-hidden marquee" aria-label="Carrusel de marcas">
           <ul className="marquee-track flex items-center gap-8 whitespace-nowrap py-2">
             {marqueeItems.map((b, idx) => (
               <li key={`${b}-${idx}`} className="shrink-0">

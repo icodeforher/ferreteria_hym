@@ -46,7 +46,7 @@ body {
 }
 
 .marquee-track {
-  animation: brands-marquee 15s linear infinite;
+  animation: brands-marquee 18s linear infinite;
   will-change: transform;
 }
 
@@ -56,8 +56,4 @@ body {
   }
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
-}
+/* No pausar en hover para evitar bloqueos tras tocar en móviles */
