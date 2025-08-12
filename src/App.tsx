@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Catalog from "./components/Catalog";
-import WhatsAppButton from "./components/WhatsAppButton";
+import Brands from "./components/Brands";
 import Footer from "./components/Footer";
 import { demoProducts } from "./data/products";
 
@@ -21,6 +21,7 @@ function App() {
       <Header businessName="distribuidora de materiales h&m." phoneNumber={PHONE_NUMBER} />
       <main>
         <Hero onCTAClick={() => openWhatsApp()} />
+        <Brands />
         <Catalog
           products={demoProducts}
           onWhatsApp={(p) =>
@@ -36,7 +37,6 @@ function App() {
         />
       </main>
       <Footer />
-      <WhatsAppButton phoneNumber={PHONE_NUMBER} />
     </div>
   );
 }

@@ -21,8 +21,8 @@ export default function Header({
     <header className="sticky top-0 z-40 w-full border-b border-neutral-200 bg-white/80 backdrop-blur">
       <div className="container flex h-16 items-center justify-between">
         <a href="#" className="flex items-center gap-2">
-          <div className="h-9 w-9 rounded-md bg-brick text-white grid place-items-center font-bold text-xs">
-            H&M
+          <div className="h-9 w-9 rounded-full bg-white ring-1 ring-neutral-200 grid place-items-center shadow-sm">
+            <img src="/favicon.svg" alt="Logo" className="h-6 w-6" />
           </div>
           <span className="font-semibold tracking-tight">{businessName}</span>
         </a>
@@ -35,7 +35,7 @@ export default function Header({
             Catálogo
           </a>
           <a
-            href="/contacto.html"
+            href="#contacto"
             className="text-neutral-600 hover:text-neutral-900"
           >
             Contacto
@@ -88,7 +88,7 @@ export default function Header({
             <a href="#catalogo" className="py-2 text-neutral-700">
               Catálogo
             </a>
-            <a href="/contacto.html" className="py-2 text-neutral-700">
+            <a href="#contacto" className="py-2 text-neutral-700">
               Contacto
             </a>
             {whatsappHref && (
