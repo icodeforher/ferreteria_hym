@@ -33,10 +33,10 @@ body {
 /* Marquee animation for brands */
 @keyframes brands-marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -46,13 +46,13 @@ body {
 }
 
 .marquee-track {
-  animation: brands-marquee 18s linear infinite;
+  animation: brands-marquee 10s linear infinite;
   will-change: transform;
 }
 
 @media (min-width: 768px) {
   .marquee-track {
-    animation-duration: 25s;
+    animation-duration: 20s;
   }
 }
 
