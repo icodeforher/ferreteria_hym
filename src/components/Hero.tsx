@@ -24,16 +24,15 @@ export default function Hero({ onCTAClick }: HeroProps) {
       <div className="container grid gap-8 pt-16 pb-6 md:grid-cols-2 md:items-center md:pt-20 md:pb-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
-            Todo para tu proyecto, al mejor precio
+            Ferretería y Materiales de Construcción en Chía
           </h1>
           <p className="mt-4 max-w-prose text-neutral-600">
-            Herramientas, pinturas, arena, cemento, bloque, varilla y más. Todo de
-            construcción para tu obra. Hacemos envíos y tomamos pedidos por WhatsApp.
+            Tu distribuidora de materiales en Chía, Cundinamarca. Venta de arena, cemento, bloque, varilla, tubería, tornillería, herramientas y pinturas para tu obra. Envíos a domicilio. Pedidos rápidos por WhatsApp.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="#catalogo"
-              className="inline-flex items-center justify-center rounded-md bg-wood px-5 py-3 text-white hover:brightness-110"
+              className="inline-flex items-center justify-center rounded-md bg-yellow px-5 py-3 text-black hover:bg-yellow/90"
             >
               Ver catálogo
             </a>
@@ -48,8 +47,8 @@ export default function Hero({ onCTAClick }: HeroProps) {
         <div className="relative">
           <div className="aspect-[4/3] w-full overflow-hidden rounded-xl ring-1 ring-neutral-200 bg-white">
             <img
-              src="/img/banner.png"
-              alt="distribuidora de materiales h&m - banner"
+              src="/img/argos.jpeg"
+              alt="distribuidora de materiales el maestro - banner"
               className="h-full w-full object-cover"
               loading={isDesktop ? "eager" : "lazy"}
               fetchPriority={isDesktop ? "high" : "auto"}

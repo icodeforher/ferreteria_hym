@@ -18,17 +18,12 @@ function App() {
 
   return (
     <div className="min-h-full bg-white">
-      <Header businessName="distribuidora de materiales h&m." phoneNumber={PHONE_NUMBER} />
+      <Header businessName="distribuidora de materiales el maestro." phoneNumber={PHONE_NUMBER} />
       <main>
         <Hero onCTAClick={() => openWhatsApp()} />
         <Brands />
         <Catalog
           products={demoProducts}
-          onWhatsApp={(p) =>
-            openWhatsApp(
-              `Hola! Me interesa: ${p.name} (${p.id}). ¿Está disponible?`
-            )
-          }
           onWhatsAppGeneral={() =>
             openWhatsApp(
               "Hola! Estoy buscando materiales para una obra. ¿Me pueden asesorar?"

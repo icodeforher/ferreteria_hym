@@ -7,6 +7,7 @@
   --color-mustard: #E5A823; /* Amarillo mostaza */
   --color-wood: #5D3A00; /* Marrón madera */
   --color-cream: #FAF3E0; /* Crema claro */
+  --color-yellow: #FCBC04; /* Amarillo principal */
 }
 
 html,
@@ -17,6 +18,11 @@ body,
 
 body {
   @apply bg-cream text-neutral-800 antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Alfa Slab One", serif;
+  font-weight: 100;
 }
 
 /* Contenedor responsive con buenos gutters */

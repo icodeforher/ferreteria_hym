@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ferreteria-hym.vercel.app/sitemap.xml
-Host: ferreteria-hym.vercel.app
+Sitemap: https://elmaestroferreteria.co/sitemap.xml
+Host: elmaestroferreteria.co
 
 

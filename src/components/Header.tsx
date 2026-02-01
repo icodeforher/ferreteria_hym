@@ -19,12 +19,17 @@ export default function Header({
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-neutral-200 bg-white/80 backdrop-blur">
-      <div className="container flex h-16 items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <div className="h-9 w-9 rounded-full bg-white ring-1 ring-neutral-200 grid place-items-center shadow-sm">
-            <img src="/favicon.svg" alt="Logo" className="h-6 w-6" />
-          </div>
-          <span className="font-semibold tracking-tight">{businessName}</span>
+      <div className="container flex h-20 md:h-24 items-center justify-between gap-4 relative">
+        <a href="#" className="flex items-center gap-3 relative z-10">
+          <img
+            src="/img/logo_web_1024.png"
+            alt="distribuidora de materiales el maestro - logo"
+            className="h-16 w-auto sm:h-20 md:h-24 lg:h-28 object-contain relative"
+            style={{ transform: 'translateY(25%)' }}
+            loading="eager"
+            fetchPriority="high"
+          />
+          <span className="hidden lg:block font-semibold tracking-tight text-sm">{businessName}</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-6 text-sm">
@@ -45,7 +50,7 @@ export default function Header({
               href={whatsappHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-brick px-3 py-2 text-white hover:bg-brick-700"
+              className="inline-flex items-center gap-2 rounded-md bg-yellow px-3 py-2 text-black hover:bg-yellow/90"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
