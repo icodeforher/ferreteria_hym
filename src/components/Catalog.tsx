@@ -25,16 +25,14 @@ export default function Catalog({ products, onWhatsAppGeneral }: CatalogProps) {
             key={p.id}
             className="group overflow-hidden rounded-lg border border-neutral-200 bg-white cv-auto flex flex-col"
           >
-            <div className="aspect-[3/2] bg-white grid place-items-center">
+            <div className="aspect-square bg-white overflow-hidden">
               <img
                 src={p.imageUrl}
                 alt={p.name}
-                className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
                 fetchPriority="low"
-                width={1024}
-                height={768}
               />
             </div>
             <div className="p-2.5 flex flex-col flex-1">
