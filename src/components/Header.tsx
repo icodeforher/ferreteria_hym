@@ -19,13 +19,12 @@ export default function Header({
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-neutral-200 bg-white/80 backdrop-blur">
-      <div className="container flex h-20 md:h-24 items-center justify-between gap-4 relative">
-        <a href="#" className="flex items-center gap-3 relative z-10">
+      <div className="container flex h-16 md:h-20 items-center justify-between gap-4">
+        <a href="#" className="flex items-center gap-3">
           <img
             src="/img/logo_web_1024.png"
             alt="distribuidora de materiales el maestro - logo"
-            className="h-16 w-auto sm:h-20 md:h-24 lg:h-28 object-contain relative"
-            style={{ transform: 'translateY(25%)' }}
+            className="h-12 w-auto sm:h-14 md:h-16 lg:h-18 object-contain"
             loading="eager"
             fetchPriority="high"
           />

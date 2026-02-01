@@ -5,6 +5,7 @@ type HeroProps = {
 
 export default function Hero({ onCTAClick }: HeroProps) {
   const [isDesktop, setIsDesktop] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
@@ -45,13 +46,19 @@ export default function Hero({ onCTAClick }: HeroProps) {
           </div>
         </div>
         <div className="relative">
-          <div className="aspect-[4/3] w-full overflow-hidden rounded-xl ring-1 ring-neutral-200 bg-white">
+          <div className="aspect-[4/3] w-full overflow-hidden rounded-xl ring-1 ring-neutral-200 bg-neutral-100 relative">
+            {!imageLoaded && (
+              <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-neutral-200 via-neutral-100 to-neutral-200 bg-[length:200%_100%]" />
+            )}
             <img
               src="/img/argos.jpeg"
               alt="distribuidora de materiales el maestro - banner"
-              className="h-full w-full object-cover"
+              className={`h-full w-full object-cover transition-opacity duration-500 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
               loading={isDesktop ? "eager" : "lazy"}
               fetchPriority={isDesktop ? "high" : "auto"}
+              onLoad={() => setImageLoaded(true)}
             />
           </div>
         </div>

@@ -63,3 +63,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* No pausar en hover para evitar bloqueos tras tocar en móviles */
+
+/* Skeleton loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+}

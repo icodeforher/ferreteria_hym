@@ -1,9 +1,45 @@
+import { useState } from "react";
 import type { Product } from "../types";
 
 type CatalogProps = {
   products: Product[];
   onWhatsAppGeneral?: () => void;
 };
+
+function ProductCard({ product }: { product: Product }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  return (
+    <article className="group overflow-hidden rounded-lg border border-neutral-200 bg-white cv-auto flex flex-col">
+      <div className="aspect-square bg-neutral-100 overflow-hidden relative">
+        {!imageLoaded && (
+          <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-neutral-200 via-neutral-100 to-neutral-200 bg-[length:200%_100%]" />
+        )}
+        <img
+          src={product.imageUrl}
+          alt={product.name}
+          className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setImageLoaded(true)}
+        />
+      </div>
+      <div className="p-2.5 flex flex-col flex-1">
+        <h3 className="font-medium text-neutral-900 text-sm">{product.name}</h3>
+        <p className="mt-1 text-xs text-neutral-600 h-7 md:h-8 overflow-hidden">
+          {product.description}
+        </p>
+        <div className="mt-auto pt-2 flex items-center justify-start">
+          <span className="inline-flex items-center rounded-full bg-mustard/20 px-2 py-0.5 text-[10px] md:text-[11px] font-medium text-wood">
+            Disponible
+          </span>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function Catalog({ products, onWhatsAppGeneral }: CatalogProps) {
   return (
@@ -21,32 +57,7 @@ export default function Catalog({ products, onWhatsAppGeneral }: CatalogProps) {
 
       <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
         {products.map((p) => (
-          <article
-            key={p.id}
-            className="group overflow-hidden rounded-lg border border-neutral-200 bg-white cv-auto flex flex-col"
-          >
-            <div className="aspect-square bg-white overflow-hidden">
-              <img
-                src={p.imageUrl}
-                alt={p.name}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-                fetchPriority="low"
-              />
-            </div>
-            <div className="p-2.5 flex flex-col flex-1">
-              <h3 className="font-medium text-neutral-900 text-sm">{p.name}</h3>
-              <p className="mt-1 text-xs text-neutral-600 h-7 md:h-8 overflow-hidden">
-                {p.description}
-              </p>
-              <div className="mt-auto pt-2 flex items-center justify-start">
-                <span className="inline-flex items-center rounded-full bg-mustard/20 px-2 py-0.5 text-[10px] md:text-[11px] font-medium text-wood">
-                  Disponible
-                </span>
-              </div>
-            </div>
-          </article>
+          <ProductCard key={p.id} product={p} />
         ))}
       </div>
       <div className="mt-10 rounded-lg bg-cream ring-1 ring-neutral-200 p-4 text-sm text-neutral-700 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
