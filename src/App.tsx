@@ -4,6 +4,7 @@ import Catalog from "./components/Catalog";
 import Brands from "./components/Brands";
 import Footer from "./components/Footer";
 import { demoProducts } from "./data/products";
+import { useEffect } from "react";
 
 const PHONE_NUMBER = "573124954231";
 
@@ -15,6 +16,22 @@ function App() {
       : `${base}?text=${encodeURIComponent("Hola! Quiero hacer un pedido.")}`;
     window.open(href, "_blank");
   };
+
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    };
+
+    // Al cargar con hash en la URL (ej. /#catalog)
+    scrollToHash();
+
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
+
 
   return (
     <div className="min-h-full bg-white">
