@@ -20,16 +20,45 @@ function App() {
   useEffect(() => {
     const scrollToHash = () => {
       const hash = window.location.hash;
-      if (!hash) return;
+      if (!hash) return false;
       const el = document.querySelector(hash);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        return true;
+      }
+      return false;
     };
 
-    // Al cargar con hash en la URL (ej. /#catalog)
-    scrollToHash();
+    // Al cargar con hash: esperar a que el elemento exista con MutationObserver.
+    const hash = window.location.hash;
+    let observer: MutationObserver | null = null;
+    let safetyId: ReturnType<typeof setTimeout> | null = null;
+
+    if (hash && !scrollToHash()) {
+      observer = new MutationObserver(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          observer?.disconnect();
+          if (safetyId != null) clearTimeout(safetyId);
+          // Esperar al siguiente frame para que el layout esté calculado (móviles).
+          requestAnimationFrame(() => {
+            el.scrollIntoView({ behavior: "smooth" });
+          });
+        }
+      });
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+      safetyId = setTimeout(() => observer?.disconnect(), 5000);
+    }
 
     window.addEventListener("hashchange", scrollToHash);
-    return () => window.removeEventListener("hashchange", scrollToHash);
+    return () => {
+      window.removeEventListener("hashchange", scrollToHash);
+      observer?.disconnect();
+      if (safetyId != null) clearTimeout(safetyId);
+    };
   }, []);
 
 
