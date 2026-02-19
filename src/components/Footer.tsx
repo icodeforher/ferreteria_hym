@@ -37,7 +37,7 @@ export default function Footer() {
                 src="https://www.google.com/maps?q=4.8646,-74.0522&z=15&output=embed"
               />
             </div>
-            <div className="mt-2 flex items-center gap-3">
+            <div className="mt-2 flex items-center gap-3" id="contacto">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=carrera%2010%20%233-42%2C%20Ch%C3%ADa%2C%20Cundinamarca"
                 target="_blank"
