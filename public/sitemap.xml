@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://elmaestroferreteria.co/</loc>
+    <loc>https://www.elmaestroferreteria.co/</loc>
     <lastmod>2026-02-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://elmaestroferreteria.co/img/logo_web_1024.png</image:loc>
+      <image:loc>https://www.elmaestroferreteria.co/img/logo_web_1024.png</image:loc>
       <image:title>Distribuidora de Materiales El Maestro - Ferretería en Chía</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://elmaestroferreteria.co/img/argos.jpeg</image:loc>
+      <image:loc>https://www.elmaestroferreteria.co/img/argos.jpeg</image:loc>
       <image:title>Materiales de construcción - Distribuidora El Maestro Chía</image:title>
     </image:image>
   </url>

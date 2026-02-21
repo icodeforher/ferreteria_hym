@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://elmaestroferreteria.co/sitemap.xml
+Sitemap: https://www.elmaestroferreteria.co/sitemap.xml
 
 
