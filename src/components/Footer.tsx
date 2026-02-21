@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer
       id="contacto"
-      className="mt-12 border-t border-neutral-200 bg-white"
+      className="mt-12 border-t border-neutral-200 bg-neutral-50"
     >
       <div className="container py-8 text-sm text-neutral-600">
         <div className="grid gap-6 md:grid-cols-2">
@@ -20,7 +20,7 @@ export default function Footer() {
             <h4 className="font-medium text-neutral-900">Contacto</h4>
             <p className="mt-2">WhatsApp: +57 312 495 4231</p>
             <p className="mt-1">Correo: distribuidora_hym@hotmail.com</p>
-            <p className="mt-1">Instagram: <a href="https://www.instagram.com/el_maestroferreteria/" target="_blank" rel="noopener noreferrer" className="text-brick hover:underline">@el_maestroferreteria</a></p>
+            <p className="mt-1">Instagram: <a href="https://www.instagram.com/el_maestroferreteria/" target="_blank" rel="noopener noreferrer" className="text-brick hover:text-brick-700 hover:underline transition-colors duration-200">@el_maestroferreteria</a></p>
             <p className="mt-1">Dirección: carrera 10 #3-42. Chia</p>
             </div>
           </div>
@@ -42,7 +42,7 @@ export default function Footer() {
                 href="https://www.google.com/maps/search/?api=1&query=carrera%2010%20%233-42%2C%20Ch%C3%ADa%2C%20Cundinamarca"
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm text-brick hover:underline"
+                className="text-sm text-brick hover:text-brick-700 hover:underline transition-colors duration-200"
               >
                 Abrir en Google Maps
               </a>

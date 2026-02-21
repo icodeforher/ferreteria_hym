@@ -18,8 +18,8 @@ export default function Header({
     : undefined;
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-neutral-200 bg-white/80 backdrop-blur">
-      <div className="container flex h-16 md:h-20 items-center justify-between gap-4">
+    <header className="sticky top-0 z-40 w-full border-b border-neutral-200 bg-white shadow-sm">
+      <div className="container flex h-16 md:h-24 items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-3">
           <img
             src="/img/logo_web_1024.png"
@@ -27,6 +27,7 @@ export default function Header({
             className="h-12 w-auto sm:h-14 md:h-16 lg:h-18 object-contain"
             loading="eager"
             fetchPriority="high"
+            decoding="async"
           />
           <span className="hidden lg:block font-semibold tracking-tight text-sm">{businessName}</span>
         </a>
@@ -34,13 +35,13 @@ export default function Header({
         <nav className="hidden md:flex items-center gap-6 text-sm">
           <a
             href="#catalogo"
-            className="text-neutral-600 hover:text-neutral-900"
+            className="text-neutral-600 hover:text-brick transition-colors duration-200"
           >
             Catálogo
           </a>
           <a
             href="#contacto"
-            className="text-neutral-600 hover:text-neutral-900"
+            className="text-neutral-600 hover:text-brick transition-colors duration-200"
           >
             Contacto
           </a>
@@ -49,7 +50,7 @@ export default function Header({
               href={whatsappHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-yellow px-3 py-2 text-black hover:bg-yellow/90"
+              className="inline-flex items-center gap-2 rounded-xl bg-yellow px-3 py-2 text-black hover:bg-yellow/90 transition-all duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

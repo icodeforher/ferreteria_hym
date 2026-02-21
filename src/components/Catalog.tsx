@@ -10,7 +10,7 @@ function ProductCard({ product }: { product: Product }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <article className="group overflow-hidden rounded-lg border border-neutral-200 bg-white cv-auto flex flex-col">
+    <article className="group overflow-hidden rounded-xl border border-neutral-200 bg-white cv-auto flex flex-col transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
       <div className="aspect-square bg-neutral-100 overflow-hidden relative">
         {!imageLoaded && (
           <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-neutral-200 via-neutral-100 to-neutral-200 bg-[length:200%_100%]" />
@@ -67,7 +67,7 @@ export default function Catalog({ products, onWhatsAppGeneral }: CatalogProps) {
         <button
           type="button"
           onClick={onWhatsAppGeneral}
-          className="inline-flex items-center gap-2 self-start rounded-md bg-yellow px-3 py-2 text-black hover:bg-yellow/90"
+          className="inline-flex items-center gap-2 self-start rounded-xl bg-yellow px-3 py-2 text-black hover:bg-yellow/90 transition-all duration-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

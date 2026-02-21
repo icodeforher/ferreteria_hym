@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
-/* Paleta personalizada */
+/* Paleta personalizada - modernizada */
 @theme {
-  --color-brick: #C1440E; /* Rojo ladrillo */
-  --color-brick-700: #A63B0D; /* Hover más oscuro */
-  --color-mustard: #E5A823; /* Amarillo mostaza */
-  --color-wood: #5D3A00; /* Marrón madera */
-  --color-cream: #FAF3E0; /* Crema claro */
-  --color-yellow: #FCBC04; /* Amarillo principal */
+  --color-brick: #B83D0C; /* Rojo ladrillo - más saturado */
+  --color-brick-700: #9A340A; /* Hover más oscuro */
+  --color-mustard: #E8B84C; /* Amarillo mostaza - más suave */
+  --color-wood: #2D2A26; /* Gris oscuro - reemplaza marrón */
+  --color-cream: #F8F7F4; /* Blanco cálido - más neutro */
+  --color-yellow: #F5A623; /* Amarillo principal - más actual */
 }
 
 html,
@@ -17,17 +17,33 @@ body,
 }
 
 body {
-  @apply bg-cream text-neutral-800 antialiased;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  @apply bg-cream text-neutral-900 antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Alfa Slab One", serif;
-  font-weight: 100;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-weight: 700;
 }
 
 /* Contenedor responsive con buenos gutters */
 .container {
   @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Scroll con hash: compensar header sticky para que el contenido no quede tapado */
+#contacto,
+#catalogo,
+#marcas {
+  scroll-margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+  #contacto,
+  #catalogo,
+  #marcas {
+    scroll-margin-top: 6rem;
+  }
 }
 
 /* Mejora performance de renderizado de tarjetas fuera de pantalla */
