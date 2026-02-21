@@ -19,7 +19,7 @@ export default function Footer() {
             <div>
             <h4 className="font-medium text-neutral-900">Contacto</h4>
             <p className="mt-2">WhatsApp: +57 312 495 4231</p>
-            <p className="mt-1">Correo: distribuidora_hym@hotmail.com</p>
+            <p className="mt-1">Correo: <a href="mailto:distrimaestrosas@gmail.com" className="text-brick hover:text-brick-700 hover:underline transition-colors duration-200">distrimaestrosas@gmail.com</a></p>
             <p className="mt-1">Instagram: <a href="https://www.instagram.com/el_maestroferreteria/" target="_blank" rel="noopener noreferrer" className="text-brick hover:text-brick-700 hover:underline transition-colors duration-200">@el_maestroferreteria</a></p>
             <p className="mt-1">Dirección: carrera 10 #3-42. Chia</p>
             </div>
