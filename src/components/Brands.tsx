@@ -55,69 +55,50 @@ const BRANDS = [
   "GENERAL ELECTRIC",
 ];
 
-function BrandImageCard({ fileName, index }: { fileName: string; index: number }) {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const src = `/img/${encodeURIComponent(fileName)}`;
-
+function BrandImage({ fileName }: { fileName: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
   return (
-    <article className="group flex h-[100px] w-[100px] max-h-[100px] max-w-[100px] shrink-0 overflow-hidden rounded-lg bg-white ring-1 ring-neutral-200 transition-shadow duration-300 hover:shadow-md">
-      <div className="flex h-full w-full items-center justify-center p-2 relative bg-neutral-50">
-        {!imageLoaded && (
-          <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-neutral-200 via-neutral-100 to-neutral-200 bg-[length:200%_100%]" />
-        )}
-        <img
-          src={src}
-          alt={`Logo de marca asociada ${index + 1}`}
-          className={`max-h-[100px] max-w-[100px] w-full h-full object-contain transition-all duration-500 group-hover:scale-105 ${
-            imageLoaded ? "opacity-100" : "opacity-0"
-          }`}
-          loading="lazy"
-          decoding="async"
-          onLoad={() => setImageLoaded(true)}
-        />
-      </div>
-    </article>
+    <img
+      src={`/img/${encodeURIComponent(fileName)}`}
+      alt=""
+      width={100}
+      height={100}
+      loading="lazy"
+      decoding="async"
+      className="h-16 w-16 shrink-0 object-contain"
+      onError={() => setFailed(true)}
+    />
   );
 }
 
 export default function Brands() {
-  const marqueeItems = [...BRANDS, ...BRANDS];
+  const names = [...BRANDS, ...BRANDS];
 
   return (
-    <section id="marcas" className="container py-12 md:py-16">
-      <div className="mb-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
-          Marcas que manejamos
-        </h2>
-        <p className="mt-1 text-sm text-neutral-600">
-          Trabajamos con referentes del mercado para asegurar calidad y disponibilidad.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-[repeat(2,minmax(100px,250px))] sm:grid-cols-[repeat(3,minmax(100px,250px))] md:grid-cols-[repeat(4,minmax(100px,250px))] gap-y-1.5 gap-x-0.5 sm:gap-y-2 md:gap-y-2 mb-8 justify-items-center justify-center">
-        {BRAND_IMAGES.map((fileName, index) => (
-          <BrandImageCard key={fileName} fileName={fileName} index={index} />
-        ))}
-      </div>
-
-      <div className="relative">
-        <div className="overflow-hidden marquee" aria-label="Carrusel de marcas">
-          <ul className="marquee-track flex items-center gap-8 whitespace-nowrap py-2">
-            {marqueeItems.map((b, idx) => (
-              <li key={`${b}-${idx}`} className="shrink-0">
-                <span className="block text-center uppercase text-sm sm:text-base md:text-lg font-semibold text-neutral-800 tracking-wide opacity-80 hover:opacity-100 transition-opacity">
-                  {b}
-                </span>
-              </li>
-            ))}
-          </ul>
+    <section id="marcas" className="border-y border-line bg-white py-12">
+      <div className="container">
+        <h2 className="text-4xl text-ink uppercase md:text-5xl">Marcas</h2>
+        <div className="mt-6 flex gap-4 overflow-x-auto pb-2">
+          {BRAND_IMAGES.map((fileName) => (
+            <div
+              key={fileName}
+              className="grid h-24 w-24 shrink-0 place-items-center rounded-2xl bg-stone-100"
+            >
+              <BrandImage fileName={fileName} />
+            </div>
+          ))}
         </div>
-
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-cream to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-cream to-transparent" />
+      </div>
+      <div className="marquee mt-8 border-t border-line" aria-label="Carrusel de marcas">
+        <ul className="marquee-track flex w-max items-center gap-10 py-5">
+          {names.map((brand, index) => (
+            <li key={`${brand}-${index}`} className="font-display text-3xl tracking-wide text-graphite-800 uppercase">
+              {brand}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
 }
-
-

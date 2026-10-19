@@ -1,13 +1,28 @@
 @import "tailwindcss";
 
-/* Paleta personalizada - modernizada */
 @theme {
-  --color-brick: #B83D0C; /* Rojo ladrillo - más saturado */
-  --color-brick-700: #9A340A; /* Hover más oscuro */
-  --color-mustard: #E8B84C; /* Amarillo mostaza - más suave */
-  --color-wood: #2D2A26; /* Gris oscuro - reemplaza marrón */
-  --color-cream: #F8F7F4; /* Blanco cálido - más neutro */
-  --color-yellow: #F5A623; /* Amarillo principal - más actual */
+  --color-brick: #b83d0c;
+  --color-brick-700: #9a340a;
+  --color-mustard: #e8b84c;
+  --color-wood: #2d2a26;
+  --color-cream: #f8f7f4;
+  --color-yellow: #f5a623;
+
+  --color-accent: #ff6a00;
+  --color-accent-hover: #e85f00;
+  --color-accent-soft: #fff0e6;
+  --color-graphite-950: #171a1d;
+  --color-graphite-900: #202428;
+  --color-graphite-800: #2b3035;
+  --color-graphite-700: #3a4147;
+  --color-stone-100: #f4f1eb;
+  --color-stone-200: #e8e3da;
+  --color-ink: #171a1d;
+  --color-muted: #626970;
+  --color-line: #d9dde0;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
 }
 
 html,
@@ -17,42 +32,41 @@ body,
 }
 
 body {
-  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-  @apply bg-cream text-neutral-900 antialiased;
+  font-family: var(--font-sans);
+  @apply bg-stone-100 text-ink antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+h1,
+h2 {
+  font-family: var(--font-display);
   font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
-/* Contenedor responsive con buenos gutters */
 .container {
-  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
 }
 
-/* Scroll con hash: compensar header sticky para que el contenido no quede tapado */
 #contacto,
+#inicio,
+#resultados,
+#productos,
 #catalogo,
-#marcas {
-  scroll-margin-top: 5rem;
+#marcas,
+#categorias {
+  scroll-margin-top: 5.5rem;
 }
 
-@media (min-width: 768px) {
-  #contacto,
-  #catalogo,
-  #marcas {
-    scroll-margin-top: 6rem;
-  }
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
-/* Mejora performance de renderizado de tarjetas fuera de pantalla */
 .cv-auto {
   content-visibility: auto;
-  contain-intrinsic-size: 320px 420px;
+  contain-intrinsic-size: 280px 420px;
 }
 
-/* Marquee animation for brands */
 @keyframes brands-marquee {
   from {
     transform: translate3d(0, 0, 0);
@@ -68,28 +82,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .marquee-track {
-  animation: brands-marquee 10s linear infinite;
+  animation: brands-marquee 42s linear infinite;
   will-change: transform;
 }
 
-@media (min-width: 768px) {
-  .marquee-track {
-    animation-duration: 20s;
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .animate-shimmer {
+    animation: none;
   }
-}
 
-/* No pausar en hover para evitar bloqueos tras tocar en móviles */
-
-/* Skeleton loading animation */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
+  html {
+    scroll-behavior: auto;
   }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.animate-shimmer {
-  animation: shimmer 2s infinite linear;
 }

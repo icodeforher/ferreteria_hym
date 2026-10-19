@@ -11,6 +11,7 @@
     "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
+    "lucide-react": "^1.59.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

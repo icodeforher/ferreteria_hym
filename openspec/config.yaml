@@ -1,0 +1,31 @@
+schema: spec-driven
+
+context: |
+  Escribe los artefactos en español.
+  La fuente de verdad visual es docs/design/el-maestro-design-system.md.
+  El acento de interfaz es #FF6A00. No uses amarillo como acento, aunque el código actual lo use.
+  No recrees el logo ni inventes precios, existencias, testimonios o datos de contacto.
+  La conversión es cotización por WhatsApp, sin checkout ni pagos.
+  No implementes la página al redactar una propuesta.
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always state what is out of scope
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing

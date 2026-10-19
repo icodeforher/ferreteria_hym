@@ -1,0 +1,16 @@
+---
+description: Fuente de verdad visual de El Maestro Ferretería
+alwaysApply: true
+---
+
+# Diseño de El Maestro
+
+Antes de cambiar interfaz, estilos, copy visual o especificaciones de la página, lee `docs/design/el-maestro-design-system.md`. Ese documento manda sobre la dirección visual. Si falta un dato, inspecciona el repositorio; no lo inventes.
+
+- Usa el logo oficial existente, sin recrearlo, vectorizarlo ni recolorarlo. Consérvalo con `object-fit: contain`.
+- El acento de interfaz es `#FF6A00`. No uses amarillo como acento. La base es grafito `#171A1D`, piedra `#F4F1EB`, blanco y grises.
+- Los colores originales del logo se quedan dentro del logo.
+- Inter es para la interfaz y Barlow Condensed para titulares, solo al implementar.
+- No inventes precios, existencias, testimonios, cobertura, horarios ni contacto.
+- La conversión es cotización por WhatsApp. No implementes checkout ni pagos.
+- No recrees logos de fabricantes si no hay un archivo oficial identificado.

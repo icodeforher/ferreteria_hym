@@ -1,57 +1,89 @@
+import WhatsAppIcon from "./WhatsAppIcon";
+import { WHATSAPP_NUMBER, quoteMessage, whatsAppHref } from "../lib/whatsapp";
+import { useQuote } from "../features/quote/quote-context";
+
+const LINKS = [
+  { href: "#inicio", label: "Inicio" },
+  { href: "#productos", label: "Productos" },
+  { href: "#marcas", label: "Marcas" },
+];
+
 export default function Footer() {
+  const { items } = useQuote();
+  const href = items.length > 0 ? whatsAppHref(quoteMessage(items)) : "#inicio";
+
   return (
-    <footer
-      id="contacto"
-      className="mt-12 border-t border-neutral-200 bg-neutral-50"
-    >
-      <div className="container py-8 text-sm text-neutral-600">
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="space-y-6">
-            <h3 className="font-semibold text-neutral-900">Distribuidora de Materiales El Maestro</h3>
-            <p className="mt-2 max-w-prose">
-              Ferretería en Chía, Cundinamarca. Materiales de construcción, herramientas y soluciones para tu hogar y obra. Envíos a Chía, Cajicá, Cota y Bogotá.
+    <footer id="contacto" className="bg-graphite-950 text-white">
+      <div className="container grid gap-10 py-16 md:grid-cols-2">
+        <div>
+          <h2 className="text-5xl leading-none uppercase">Cotiza tus materiales</h2>
+          <p className="mt-4 max-w-md text-white/70">
+            Arma la lista y envíala por WhatsApp. El equipo te confirma precio y existencia.
+          </p>
+          <a
+            href={href}
+            target={items.length > 0 ? "_blank" : undefined}
+            rel={items.length > 0 ? "noreferrer" : undefined}
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold hover:bg-accent-hover"
+          >
+            <WhatsAppIcon className="h-4 w-4" />
+            Pedir cotización
+          </a>
+        </div>
+        <div className="grid gap-8 sm:grid-cols-2">
+          <div className="text-sm text-white/75">
+            <h3 className="font-sans text-base font-semibold text-white">Contacto</h3>
+            <p className="mt-3">WhatsApp: +57 312 495 4231</p>
+            <p className="mt-1">
+              Correo:{" "}
+              <a className="underline" href="mailto:distrimaestrosas@gmail.com">
+                distrimaestrosas@gmail.com
+              </a>
             </p>
-            <div>
-              <h4 className="font-medium text-neutral-900">Horarios</h4>
-              <p className="mt-2">Lun a Vie: 9:00am - 06:30pm</p>
-              <p>Sab: 9:00am - 01:00pm</p>
-            </div>
-            <div>
-            <h4 className="font-medium text-neutral-900">Contacto</h4>
-            <p className="mt-2">WhatsApp: +57 312 495 4231</p>
-            <p className="mt-1">Correo: <a href="mailto:distrimaestrosas@gmail.com" className="text-brick hover:text-brick-700 hover:underline transition-colors duration-200">distrimaestrosas@gmail.com</a></p>
-            <p className="mt-1">Instagram: <a href="https://www.instagram.com/el_maestroferreteria/" target="_blank" rel="noopener noreferrer" className="text-brick hover:text-brick-700 hover:underline transition-colors duration-200">@el_maestroferreteria</a></p>
-            <p className="mt-1">Dirección: carrera 10 #3-42. Chia</p>
-            </div>
-          </div>
-          <div>
-            <h4 className="font-medium text-neutral-900">Ubicación</h4>
-            <div className="mt-3 overflow-hidden rounded-lg ring-1 ring-neutral-200 h-40 sm:h-48 md:h-64 lg:h-72">
-              <iframe
-                title="Mapa - Distribuidora de materiales el maestro"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=4.8646,-74.0522&z=15&output=embed"
-              />
-            </div>
-            <div className="mt-2 flex items-center gap-3">
+            <p className="mt-1">
+              Instagram:{" "}
               <a
-                href="https://www.google.com/maps/search/?api=1&query=carrera%2010%20%233-42%2C%20Ch%C3%ADa%2C%20Cundinamarca"
+                className="underline"
+                href="https://www.instagram.com/el_maestroferreteria/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm text-brick hover:text-brick-700 hover:underline transition-colors duration-200"
               >
-                Abrir en Google Maps
+                @el_maestroferreteria
               </a>
-            </div>
+            </p>
+            <p className="mt-1">Dirección: Carrera 10 #3-42, Chía</p>
+            <p className="mt-3">Lun a vie: 9:00 a. m. – 6:30 p. m.</p>
+            <p>Sáb: 9:00 a. m. – 1:00 p. m.</p>
+            <a className="mt-3 inline-block underline" href={`https://wa.me/${WHATSAPP_NUMBER}`}>
+              Abrir WhatsApp
+            </a>
           </div>
+          <nav aria-label="Secundaria" className="flex flex-col gap-2 text-sm">
+            {LINKS.map((link) => (
+              <a key={link.href} href={link.href} className="text-white/75 hover:text-white">
+                {link.label}
+              </a>
+            ))}
+          </nav>
         </div>
-        <div className="mt-8 border-t border-neutral-200 pt-4 text-xs text-neutral-500">
-          © {new Date().getFullYear()} Distribuidora de Materiales El Maestro. Todos los derechos reservados.
+      </div>
+      <div className="container pb-12">
+        <h3 className="font-sans text-base font-semibold">Ubicación</h3>
+        <p className="mt-2 text-sm text-white/75">Carrera 10 #3-42, Chía</p>
+        <div className="mt-4 h-72 overflow-hidden rounded-2xl bg-graphite-900 md:h-80">
+          <iframe
+            title="Mapa - Distribuidora de materiales el maestro"
+            src="https://www.google.com/maps?q=4.8646,-74.0522&z=15&output=embed"
+            className="h-full w-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
+      </div>
+      <div className="border-t border-white/10">
+        <p className="container py-4 text-xs text-white/50">
+          © {new Date().getFullYear()} Distribuidora de Materiales El Maestro.
+        </p>
       </div>
     </footer>
   );

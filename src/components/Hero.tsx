@@ -1,68 +1,151 @@
-import { useEffect, useState } from "react";
+import { ArrowRight, Headset, Search, Store, Wrench, X } from "lucide-react";
+import { useEffect, useId, useRef, type ReactNode } from "react";
+
+const NOTES = [
+  { icon: Headset, label: "Asesoría por WhatsApp" },
+  { icon: Wrench, label: "Materiales y herramientas" },
+  { icon: Store, label: "Atención en tienda" },
+  { icon: ArrowRight, label: "Arma tu cotización" },
+];
+
 type HeroProps = {
-  onCTAClick?: () => void;
+  query: string;
+  onQueryChange: (value: string) => void;
+  onSearch: () => void;
+  onClear: () => void;
+  results: ReactNode;
+  list: ReactNode;
 };
 
-export default function Hero({ onCTAClick }: HeroProps) {
-  const [isDesktop, setIsDesktop] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
+export default function Hero({ query, onQueryChange, onSearch, onClear, results, list }: HeroProps) {
+  const searchId = useId();
+  const sectionRef = useRef<HTMLElement>(null);
+  const photoRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 1024px)");
-    const handleChange = () => setIsDesktop(mediaQuery.matches);
-    handleChange();
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener("change", handleChange);
-      return () => mediaQuery.removeEventListener("change", handleChange);
-    } else {
-      // Safari antiguo
-      mediaQuery.addListener(handleChange);
-      return () => mediaQuery.removeListener(handleChange);
-    }
+    const section = sectionRef.current;
+    const photo = photoRef.current;
+    if (!section || !photo) return;
+
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      if (!desktop.matches || reduced.matches) {
+        photo.style.transform = "";
+        return;
+      }
+      const maxShift = section.offsetHeight * 0.2;
+      const shift = Math.min(Math.max(window.scrollY, 0) * 0.35, maxShift);
+      photo.style.transform = `translate3d(0, ${shift}px, 0)`;
+    };
+
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    };
+
+    const onChange = () => update();
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    desktop.addEventListener("change", onChange);
+    reduced.addEventListener("change", onChange);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      desktop.removeEventListener("change", onChange);
+      reduced.removeEventListener("change", onChange);
+      if (frame) window.cancelAnimationFrame(frame);
+      photo.style.transform = "";
+    };
   }, []);
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-cream to-white">
-      <div className="container grid gap-8 pt-20 pb-12 md:grid-cols-2 md:items-center md:pt-24 md:pb-16">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
-            Ferretería y Materiales de Construcción en Chía
-          </h1>
-          <p className="mt-4 max-w-prose text-neutral-600">
-            Tu distribuidora de materiales en Chía, Cundinamarca. Venta de arena, cemento, bloque, varilla, tubería, tornillería, herramientas y pinturas para tu obra. Envíos a domicilio. Pedidos rápidos por WhatsApp.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="#catalogo"
-              className="inline-flex items-center justify-center rounded-xl bg-yellow px-5 py-3 text-black hover:bg-yellow/90 transition-all duration-200"
+    <section
+      ref={sectionRef}
+      id="inicio"
+      className="relative isolate min-h-[78vh] overflow-hidden bg-graphite-950 text-white"
+    >
+      <img
+        ref={photoRef}
+        src="/img/hero-obra.jpg"
+        alt="Obra en construcción al atardecer"
+        width={2172}
+        height={724}
+        className="absolute inset-x-0 -top-[20%] h-[140%] w-full max-w-none object-cover"
+        fetchPriority="high"
+        decoding="async"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-graphite-950/92 via-graphite-950/55 to-graphite-950/20" />
+      <div className="container relative flex min-h-[78vh] flex-col justify-end pt-16 pb-28 md:pt-24 lg:pb-16">
+        <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">
+          Materiales, herramientas y asesoría
+        </p>
+        <h1 className="mt-4 max-w-4xl text-6xl leading-[0.88] text-white uppercase sm:text-7xl md:text-8xl">
+          Construimos
+          <span className="block text-accent">tus ideas</span>
+        </h1>
+        <p className="mt-5 max-w-xl text-base text-white/80 sm:text-lg">
+          Materiales y herramientas para tu obra, con asesoría cercana en Chía, Tabio, Cajicá, Yerbabuena y zonas cercanas.
+        </p>
+        <div className="mt-8 grid items-start gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
+          <div className="lg:flex lg:h-80 lg:min-h-0 lg:flex-col">
+            <form
+              id="busqueda-banner"
+              className="flex shrink-0 items-center gap-2 rounded-full bg-white p-2 text-ink"
+              onSubmit={(event) => {
+                event.preventDefault();
+                onSearch();
+              }}
             >
-              Ver catálogo
-            </a>
-            <button
-              onClick={onCTAClick}
-              className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-wood ring-1 ring-inset ring-wood/30 hover:bg-cream transition-all duration-200"
-            >
-              Pedir por WhatsApp
-            </button>
+              <label htmlFor={searchId} className="sr-only">
+                ¿Qué material necesitas?
+              </label>
+              <Search className="ml-2 h-5 w-5 shrink-0 text-muted" aria-hidden="true" />
+              <input
+                id={searchId}
+                value={query}
+                onChange={(event) => onQueryChange(event.target.value)}
+                placeholder="¿Qué material necesitas?"
+                className="w-full bg-transparent px-1 py-2 text-base outline-none"
+              />
+              {query.trim() && (
+                <button
+                  type="button"
+                  onClick={onClear}
+                  aria-label="Limpiar búsqueda"
+                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-stone-100"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              )}
+              <button
+                type="submit"
+                className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-white hover:bg-accent-hover"
+                aria-label="Buscar materiales"
+              >
+                <ArrowRight className="h-5 w-5" />
+              </button>
+            </form>
+            <div className="mt-4 hidden min-h-0 flex-1 overflow-y-auto lg:block">{results}</div>
+          </div>
+          <div className="hidden h-80 min-h-0 flex-col overflow-hidden rounded-3xl border border-line bg-white p-5 text-ink lg:flex">
+            {list}
           </div>
         </div>
-        <div className="relative">
-          <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-neutral-200 bg-neutral-100 relative">
-            {!imageLoaded && (
-              <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-neutral-200 via-neutral-100 to-neutral-200 bg-[length:200%_100%]" />
-            )}
-            <img
-              src="/img/argos.jpeg"
-              alt="distribuidora de materiales el maestro - banner"
-              className={`h-full w-full object-cover transition-opacity duration-500 ${
-                imageLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              loading={isDesktop ? "eager" : "lazy"}
-              fetchPriority={isDesktop ? "high" : "auto"}
-              decoding="async"
-              onLoad={() => setImageLoaded(true)}
-            />
-          </div>
-        </div>
+      </div>
+      <div className="absolute inset-x-0 bottom-0">
+        <ul className="container grid grid-cols-2 gap-3 pb-6 lg:grid-cols-4">
+          {NOTES.map((note) => (
+            <li key={note.label} className="flex items-center gap-3 text-sm text-white/85">
+              <note.icon className="h-5 w-5 text-accent" aria-hidden="true" />
+              {note.label}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
