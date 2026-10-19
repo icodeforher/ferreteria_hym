@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.elmaestroferreteria.co/</loc>
-    <lastmod>2026-02-21</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://www.elmaestroferreteria.co/img/logo_web_1024.png</image:loc>
-      <image:title>Distribuidora de Materiales El Maestro - Ferretería en Chía</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.elmaestroferreteria.co/img/argos.jpeg</image:loc>
-      <image:title>Materiales de construcción - Distribuidora El Maestro Chía</image:title>
-    </image:image>
+  </url>
+  <url>
+    <loc>https://www.elmaestroferreteria.co/contacto.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
-
-

@@ -1,4 +1,5 @@
 import { productDetail, searchProducts } from "../data/catalog";
+import { trackAdd } from "../lib/analytics";
 import { productDraft } from "../features/quote/drafts";
 import { useQuote } from "../features/quote/quote-context";
 import type { CatalogProduct } from "../types";
@@ -57,6 +58,7 @@ export default function ProductList({ products, query, onQueryChange, onAdded }:
                     type="button"
                     onClick={() => {
                       add(productDraft(product));
+                      trackAdd(product.id);
                       onAdded(product.name);
                     }}
                     className="shrink-0 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-hover"

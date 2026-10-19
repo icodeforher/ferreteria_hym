@@ -1,10 +1,9 @@
-import WhatsAppIcon from "./WhatsAppIcon";
+import { trackAdvisory } from "../lib/analytics";
 import { whatsAppHref } from "../lib/whatsapp";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function Trust() {
-  const href = whatsAppHref(
-    "Hola, quiero asesoría para cotizar materiales de una obra.",
-  );
+  const href = whatsAppHref("Hola, quiero asesoría sobre materiales para una obra.");
 
   return (
     <section className="bg-graphite-950 text-white">
@@ -23,15 +22,16 @@ export default function Trust() {
             Asesoría
           </p>
           <h2 className="mt-3 max-w-md text-5xl leading-none uppercase md:text-6xl">
-            Te acompañamos a armar la lista
+            Hablemos de tu obra
           </h2>
           <p className="mt-5 max-w-md text-white/75">
-            Cuéntanos qué materiales necesitas y prepara la cotización por WhatsApp. El equipo confirma precio y existencia.
+            Cuéntanos qué materiales necesitas. Te asesoramos por WhatsApp.
           </p>
           <a
             href={href}
             target="_blank"
             rel="noreferrer"
+            onClick={trackAdvisory}
             className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold hover:bg-accent-hover"
           >
             <WhatsAppIcon className="h-4 w-4" />

@@ -1,4 +1,5 @@
 import { productDetail, searchProducts } from "../data/catalog";
+import { trackAdd } from "../lib/analytics";
 import { productDraft } from "../features/quote/drafts";
 import { useQuote } from "../features/quote/quote-context";
 import type { CatalogProduct } from "../types";
@@ -16,6 +17,7 @@ export default function SearchResults({ products, query, onAdded }: SearchResult
 
   const addProduct = (product: CatalogProduct) => {
     add(productDraft(product));
+    trackAdd(product.id);
     onAdded(product.name);
   };
 

@@ -1,6 +1,7 @@
 import { Minus, Plus, Trash2, X } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useQuote } from "../features/quote/quote-context";
+import { recordQuoteSent } from "../lib/usage";
 import { quoteMessage, whatsAppHref } from "../lib/whatsapp";
 import WhatsAppIcon from "./WhatsAppIcon";
 
@@ -114,6 +115,7 @@ export default function QuoteDrawer({ open, onClose }: QuoteDrawerProps) {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => recordQuoteSent(items)}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-white hover:bg-accent-hover"
               >
                 <WhatsAppIcon className="h-4 w-4" />
