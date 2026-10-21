@@ -11,11 +11,11 @@ export default function Trust() {
         <img
           src="/img/desktop/hero-parallax.webp"
           alt=""
-          width={1536}
-          height={247}
+          width={1920}
+          height={1080}
           loading="lazy"
           decoding="async"
-          className="h-72 w-full object-cover md:h-full"
+          className="h-72 w-full object-cover object-center md:h-full"
         />
         <div className="flex flex-col justify-center px-5 py-16 sm:px-8 lg:px-16">
           <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">

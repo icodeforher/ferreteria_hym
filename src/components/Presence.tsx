@@ -1,5 +1,5 @@
 const PHOTO_CLASS =
-  "absolute inset-x-0 -top-[20%] h-[140%] w-full max-w-none object-cover";
+  "absolute inset-0 h-full w-full max-w-none object-cover";
 
 const BANDS = [
   {
@@ -8,8 +8,9 @@ const BANDS = [
     alt: "Fachada industrial de metal oscuro con una franja naranja",
     desktop: "/img/desktop/fachada-industrial.webp",
     mobile: "/img/mobile/fachada-industrial-mobile.webp",
-    width: 229,
-    height: 287,
+    width: 720,
+    height: 1280,
+    objectPosition: "50% 50%",
   },
   {
     title: "Cemento",
@@ -17,8 +18,9 @@ const BANDS = [
     alt: "Sacos de cemento apilados frente a una estructura en obra",
     desktop: "/img/desktop/cemento.webp",
     mobile: "/img/mobile/cemento-mobile.webp",
-    width: 191,
-    height: 239,
+    width: 720,
+    height: 1280,
+    objectPosition: "50% 70%",
   },
   {
     title: "Agregados",
@@ -26,8 +28,9 @@ const BANDS = [
     alt: "Montículos de arena y grava en una planta de materiales",
     desktop: "/img/desktop/agregados.webp",
     mobile: "/img/mobile/agregados-mobile.webp",
-    width: 191,
-    height: 239,
+    width: 720,
+    height: 1280,
+    objectPosition: "50% 70%",
   },
   {
     title: "Mampostería",
@@ -35,8 +38,9 @@ const BANDS = [
     alt: "Bloques de concreto y ladrillos apilados en obra",
     desktop: "/img/desktop/ladrillos.webp",
     mobile: "/img/mobile/ladrillos-mobile.webp",
-    width: 191,
-    height: 239,
+    width: 720,
+    height: 1280,
+    objectPosition: "50% 70%",
   },
   {
     title: "Tubería",
@@ -44,8 +48,9 @@ const BANDS = [
     alt: "Tubería corrugada y tubos en estantería de bodega",
     desktop: "/img/desktop/tuberia-industrial.webp",
     mobile: "/img/mobile/tuberia-industrial-mobile.webp",
-    width: 229,
-    height: 287,
+    width: 720,
+    height: 1280,
+    objectPosition: "50% 50%",
   },
   {
     title: "Instalaciones",
@@ -53,8 +58,9 @@ const BANDS = [
     alt: "Accesorios blancos de plomería en estantería",
     desktop: "/img/desktop/tuberias.webp",
     mobile: "/img/mobile/tuberias-mobile.webp",
-    width: 176,
-    height: 220,
+    width: 720,
+    height: 1280,
+    objectPosition: "50% 45%",
   },
   {
     title: "Madera",
@@ -62,8 +68,9 @@ const BANDS = [
     alt: "Tablones de madera apilados en bodega",
     desktop: "/img/desktop/madera.webp",
     mobile: "/img/mobile/madera-mobile.webp",
-    width: 176,
-    height: 220,
+    width: 720,
+    height: 1280,
+    objectPosition: "50% 55%",
   },
   {
     title: "Herramientas",
@@ -71,8 +78,9 @@ const BANDS = [
     alt: "Pasillo de ferretería con herramientas colgadas",
     desktop: "/img/desktop/pasillo-herramientas.webp",
     mobile: "/img/mobile/pasillo-herramientas-mobile.webp",
-    width: 229,
-    height: 287,
+    width: 720,
+    height: 1280,
+    objectPosition: "50% 50%",
   },
   {
     title: "Taller",
@@ -80,8 +88,9 @@ const BANDS = [
     alt: "Taladro, martillo y flexómetro sobre un banco de trabajo",
     desktop: "/img/desktop/herramientas.webp",
     mobile: "/img/mobile/herramientas-mobile.webp",
-    width: 176,
-    height: 220,
+    width: 720,
+    height: 1280,
+    objectPosition: "50% 55%",
   },
   {
     title: "Acabados",
@@ -89,8 +98,9 @@ const BANDS = [
     alt: "Brocha, rodillo y latas de pintura abiertas",
     desktop: "/img/desktop/pinturas.webp",
     mobile: "/img/mobile/pinturas-mobile.webp",
-    width: 176,
-    height: 220,
+    width: 720,
+    height: 1280,
+    objectPosition: "50% 50%",
   },
 ];
 
@@ -103,7 +113,7 @@ export default function Presence() {
           className="relative isolate min-h-svh overflow-hidden bg-graphite-950 text-white"
         >
           <picture>
-            <source media="(min-width: 1024px)" srcSet={band.desktop} />
+            <source media="(min-width: 1024px)" srcSet={band.desktop} width={1280} height={720} />
             <img
               src={band.mobile}
               alt={band.alt}
@@ -111,6 +121,7 @@ export default function Presence() {
               height={band.height}
               data-parallax=""
               className={PHOTO_CLASS}
+              style={{ objectPosition: band.objectPosition }}
               loading="lazy"
               decoding="async"
             />

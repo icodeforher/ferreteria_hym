@@ -8,18 +8,23 @@ const NOTES = [
 ];
 
 const PHOTO_CLASS =
-  "absolute inset-x-0 -top-[20%] h-[140%] w-full max-w-none object-cover";
+  "absolute inset-0 h-full w-full max-w-none object-cover object-[50%_45%]";
 
 export default function Hero() {
   return (
     <section id="inicio" className="relative isolate min-h-[78vh] overflow-hidden bg-graphite-950 text-white">
       <picture>
-        <source media="(min-width: 1024px)" srcSet="/img/desktop/hero-parallax.webp" />
+        <source
+          media="(min-width: 1024px)"
+          srcSet="/img/desktop/hero-parallax.webp"
+          width={1920}
+          height={1080}
+        />
         <img
           src="/img/mobile/hero-parallax-mobile.webp"
           alt="Obra en construcción al atardecer"
-          width={197}
-          height={247}
+          width={720}
+          height={1280}
           data-parallax=""
           className={PHOTO_CLASS}
           fetchPriority="high"

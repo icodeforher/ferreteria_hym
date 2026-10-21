@@ -19,9 +19,11 @@ export function useParallax(rootRef: RefObject<HTMLElement | null>) {
         }
         const section = photo.closest("section");
         if (!section) return;
-        const maxShift = section.offsetHeight * 0.2;
+        // Keep shift small: photos are h-full (no 140% buffer) so large
+        // translates would reveal empty edges and force unnecessary upscale.
+        const maxShift = section.offsetHeight * 0.08;
         const traveled = Math.max(-section.getBoundingClientRect().top, 0);
-        const shift = Math.min(traveled * 0.35, maxShift);
+        const shift = Math.min(traveled * 0.2, maxShift);
         photo.style.transform = `translate3d(0, ${shift}px, 0)`;
       });
     };
