@@ -39,8 +39,8 @@ export default function Footer() {
               </a>
             </p>
             <p className="mt-1">Dirección: Carrera 10 #3-42, Chía</p>
-            <p className="mt-3">Lun a vie: 9:00 a. m. – 6:30 p. m.</p>
-            <p>Sáb: 9:00 a. m. – 1:00 p. m.</p>
+            <p className="mt-3">Lun a vie: 7:00 a. m. – 5:00 p. m.</p>
+            <p>Sáb: 7:00 a. m. – 1:00 p. m.</p>
             <a
               className="mt-3 inline-block underline"
               href={`https://wa.me/${WHATSAPP_NUMBER}`}

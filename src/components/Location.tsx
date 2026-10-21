@@ -12,8 +12,8 @@ export default function Location() {
           <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">Ubicación</p>
           <h2 className="mt-3 text-5xl leading-none uppercase md:text-6xl">Carrera 10 #3-42</h2>
           <p className="mt-4 text-white/75">Chía, Cundinamarca</p>
-          <p className="mt-6 text-sm text-white/75">Lun a vie: 9:00 a. m. – 6:30 p. m.</p>
-          <p className="text-sm text-white/75">Sáb: 9:00 a. m. – 1:00 p. m.</p>
+          <p className="mt-6 text-sm text-white/75">Lun a vie: 7:00 a. m. – 5:00 p. m.</p>
+          <p className="text-sm text-white/75">Sáb: 7:00 a. m. – 1:00 p. m.</p>
           <a
             href={HREF}
             target="_blank"

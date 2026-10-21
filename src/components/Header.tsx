@@ -51,11 +51,11 @@ export default function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-3">
-          <p className="hidden text-right leading-none md:block" aria-hidden="true">
-            <span className="block font-display text-2xl font-extrabold uppercase tracking-wide md:text-3xl">
+          <p className="text-right leading-none" aria-hidden="true">
+            <span className="block font-display text-xl font-extrabold uppercase tracking-wide sm:text-2xl md:text-3xl">
               El Maestro
             </span>
-            <span className="mt-1 block text-[0.7rem] font-semibold tracking-[0.28em] text-accent uppercase">
+            <span className="mt-0.5 block text-[0.65rem] font-semibold tracking-[0.22em] text-accent uppercase sm:mt-1 sm:text-[0.7rem] sm:tracking-[0.28em]">
               Ferretería
             </span>
           </p>
