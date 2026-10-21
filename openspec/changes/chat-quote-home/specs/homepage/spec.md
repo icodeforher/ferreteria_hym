@@ -7,7 +7,7 @@ La portada muestra la ferretería con un recorrido visual. No arma una cotizaci�
 ## ADDED Requirements
 
 ### Requirement: Banner cinematográfico
-La portada MUST abrir con el banner de `/img/hero-obra.jpg`, a sangre, y el titular “Construimos tus ideas” como único encabezado principal. Sobre el titular MUST verse “Ferretería en Chía”. Las cuatro notas MUST quedar en el borde inferior de la fotografía. El banner MUST NOT incluir buscador ni lista.
+La portada MUST abrir con el banner a sangre y el titular “Construimos tus ideas” como único encabezado principal. Sobre el titular MUST verse “Ferretería en Chía”. Las cuatro notas MUST quedar en el borde inferior de la fotografía. El banner MUST NOT incluir buscador ni lista. Desde 1024 px MUST usar la foto de escritorio; por debajo MUST usar la de móvil.
 
 #### Scenario: Llegada con el banner
 - **WHEN** la persona abre la portada
@@ -23,11 +23,17 @@ La portada MUST abrir con el banner de `/img/hero-obra.jpg`, a sangre, y el titu
 - **THEN** no ve buscador ni lista
 
 ### Requirement: Recorrido visual
-Debajo del banner la portada MUST mostrar doce bandas a pantalla, en este orden: La obra, Cemento, Agregados, Estructura, Acero, Mampostería, Tubería, Instalaciones, Madera, Herramientas, Taller y Acabados. Cada banda MUST mostrar su fotografía a sangre, su título y un párrafo sobre ese material, sin precios ni existencias.
+Debajo del banner la portada MUST mostrar diez bandas a pantalla, en este orden: La obra, Cemento, Agregados, Mampostería, Tubería, Instalaciones, Madera, Herramientas, Taller y Acabados. Cada banda MUST mostrar su fotografía a sangre, su título y un párrafo sobre ese material, sin precios ni existencias. Las fotos MUST vivir solo en `/img/desktop` y `/img/mobile`. Desde 1024 px MUST usar la foto de escritorio; por debajo MUST usar la de móvil.
 
 #### Scenario: Bandas en orden
 - **WHEN** la persona baja por la portada
-- **THEN** ve esas doce bandas, cada una con su título y su párrafo sobre la fotografía
+- **THEN** ve esas diez bandas, cada una con su título y su párrafo sobre la fotografía
+
+#### Scenario: Foto según el dispositivo
+- **WHEN** la persona abre la portada en escritorio
+- **THEN** el banner y las bandas cargan la foto de `/img/desktop`
+- **WHEN** la persona abre la portada en móvil
+- **THEN** el banner y las bandas cargan la foto de `/img/mobile`
 
 ### Requirement: Parallax
 En escritorio, al hacer scroll, la fotografía del banner y la de cada banda MUST moverse más lento que el texto y MUST usar solo transform. En móvil y cuando el sistema pide reducir el movimiento, esas fotografías MUST permanecer quietas.

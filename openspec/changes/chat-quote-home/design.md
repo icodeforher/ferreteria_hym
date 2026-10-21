@@ -20,7 +20,7 @@ La aplicación es una sola página en React 19 y Vite, sin React Router. La coti
 
 ## Decisions
 
-- La portada es un recorrido visual con el banner y doce bandas. No muestra buscador, lista ni `#productos`. El banner es el `Hero` existente, con `/img/hero-obra.jpg`. El mapa publicado `4.8529977,-74.062369` está en la sección de contacto, no en el pie.
+- La portada es un recorrido visual con el banner y diez bandas. No muestra buscador, lista ni `#productos`. Las fotos del banner y del recorrido viven en `/img/desktop` y `/img/mobile`. El mapa publicado `4.8529977,-74.062369` está en la sección de contacto, no en el pie.
 - `add` acepta una línea `{ id, name, reference? }`. Un producto del inventario usa su SKU como `id` y como `reference`. Un texto libre usa un id estable `texto:` más el texto normalizado (minúsculas y espacios colapsados) y no guarda `reference`.
 - La búsqueda reutiliza nombre, marca, categoría, id y descripción del inventario ya mapeado. Los resultados no renderizan `imageUrl`.
 - La lista visible reutiliza aumentar, disminuir y quitar. El cajón del encabezado puede seguir abriendo el mismo resumen.

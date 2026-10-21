@@ -7,19 +7,25 @@ const NOTES = [
   { icon: ArrowRight, label: "Arma tu cotización" },
 ];
 
+const PHOTO_CLASS =
+  "absolute inset-x-0 -top-[20%] h-[140%] w-full max-w-none object-cover";
+
 export default function Hero() {
   return (
     <section id="inicio" className="relative isolate min-h-[78vh] overflow-hidden bg-graphite-950 text-white">
-      <img
-        src="/img/hero-obra.jpg"
-        alt="Obra en construcción al atardecer"
-        width={2172}
-        height={724}
-        data-parallax=""
-        className="absolute inset-x-0 -top-[20%] h-[140%] w-full max-w-none object-cover"
-        fetchPriority="high"
-        decoding="async"
-      />
+      <picture>
+        <source media="(min-width: 1024px)" srcSet="/img/desktop/hero-parallax.webp" />
+        <img
+          src="/img/mobile/hero-parallax-mobile.webp"
+          alt="Obra en construcción al atardecer"
+          width={197}
+          height={247}
+          data-parallax=""
+          className={PHOTO_CLASS}
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
       <div className="absolute inset-0 bg-gradient-to-r from-graphite-950/92 via-graphite-950/55 to-graphite-950/20" />
       <div className="container relative flex min-h-[78vh] flex-col justify-end pt-16 pb-52 md:pt-24 md:pb-40">
         <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">Ferretería en Chía</p>
@@ -38,12 +44,12 @@ export default function Hero() {
             Cómo llegar
           </a>
           <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-          {NOTES.map((note) => (
-            <li key={note.label} className="flex items-center gap-3 text-sm text-white/85">
-              <note.icon className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
-              {note.label}
-            </li>
-          ))}
+            {NOTES.map((note) => (
+              <li key={note.label} className="flex items-center gap-3 text-sm text-white/85">
+                <note.icon className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+                {note.label}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

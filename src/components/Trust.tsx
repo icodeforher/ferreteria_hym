@@ -9,10 +9,10 @@ export default function Trust() {
     <section className="bg-graphite-950 text-white">
       <div className="grid md:grid-cols-2">
         <img
-          src="/img/hero-obra.jpg"
+          src="/img/desktop/hero-parallax.webp"
           alt=""
-          width={2172}
-          height={724}
+          width={1536}
+          height={247}
           loading="lazy"
           decoding="async"
           className="h-72 w-full object-cover md:h-full"
